@@ -1,4 +1,12 @@
-import {Image, StyleSheet, ScrollView, Text, View} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  ScrollView,
+  Text,
+  View,
+  Pressable,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../api';
@@ -17,17 +25,10 @@ const Like = ({navigation}) => {
       console.log('error at like', e);
     }
   };
-  // const getLikedData = async () => {
-  //   try {
-  //     const jsonValue = await AsyncStorage.getItem('api');
-  //     // console.log('api value', jsonValue);
-  //     if (jsonValue != null) {
-  //       setData(JSON.parse(jsonValue));
-  //     }
-  //   } catch (e) {
-  //     console.log('error at like', e);
-  //   }
-  // };
+
+  const handleclick = id => {
+    // navigation.navigate('Food', {id: id});
+  };
   useEffect(() => {
     navigation.addListener('focus', () => {
       getLikedFood();
@@ -48,14 +49,18 @@ const Like = ({navigation}) => {
                     style={styles.img}
                   />
                 </View>
-
                 <View style={styles.ingredients}>
                   {item.recipe.ingredientLines.map((ingitems, Iid) => (
-                    <Text style={styles.ingredientsText}>
+                    <Text style={styles.ingredientsText} key={Iid}>
                       {Iid + 1}. {ingitems}
                     </Text>
                   ))}
                 </View>
+                {/* <TouchableOpacity style={styles.btn}>
+                  <Pressable onPress={() => handleclick(id)}>
+                    <Text>Show More</Text>
+                  </Pressable>
+                </TouchableOpacity> */}
               </View>
             </View>
           ) : null,
@@ -68,6 +73,11 @@ const Like = ({navigation}) => {
 export default Like;
 
 const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: 'lightblue',
+    textAlign: 'center',
+    padding: 10,
+  },
   FoodItems: {
     alignItems: 'center',
   },

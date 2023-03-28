@@ -5,6 +5,19 @@ const Article = () => {
   return (
     <View>
       <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
+      <Text>Article</Text>
     </View>
   );
 };

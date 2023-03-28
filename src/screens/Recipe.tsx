@@ -1,16 +1,24 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Image, StyleSheet, Text, View, Pressable} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Food from './Food';
 
-const Recipe = ({Fid, label, image, ingredients}) => {
+const Recipe = ({Fid, label, image, ingredients, navigation}) => {
   const [like, setLike] = useState([]);
   const [LikedData, setLikedData] = useState([]);
   const getLikedFood = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('FavFood');
-      console.log('json value', jsonValue);
+      // console.log('json value', jsonValue);
       if (jsonValue != null) {
         setLike(JSON.parse(jsonValue));
       }
@@ -36,6 +44,11 @@ const Recipe = ({Fid, label, image, ingredients}) => {
     await AsyncStorage.setItem('FavFood', jsonValue2);
     // console.log('after json value', jsonValue2);
   };
+
+  const handleclick = id => {
+    navigation.navigate('Food', {id: id});
+  };
+
   useEffect(() => {
     getLikedFood();
   }, []);
@@ -60,12 +73,19 @@ const Recipe = ({Fid, label, image, ingredients}) => {
           <Image source={{uri: `${image}`}} style={styles.img} />
         </View>
 
-        <View style={styles.ingredients}>
+        {/* <View style={styles.ingredients}>
           {ingredients.map((items, id) => (
             <Text style={styles.ingredientsText}>
               {id + 1}. {items}
             </Text>
           ))}
+        </View> */}
+        <View>
+          <TouchableOpacity style={styles.btn}>
+            <Pressable onPress={() => handleclick(Fid)}>
+              <Text>Show More</Text>
+            </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -75,6 +95,11 @@ const Recipe = ({Fid, label, image, ingredients}) => {
 export default Recipe;
 
 const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: 'lightblue',
+    textAlign: 'center',
+    padding: 10,
+  },
   fav: {
     width: 30,
     height: 30,
