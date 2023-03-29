@@ -9,6 +9,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Like from './screens/Like';
 import Recipe from './screens/Recipe';
 import Food from './screens/Food';
+import ChatApp from './screens/ChatApp';
+import Chats from './screens/Chats';
 const Drawer = createDrawerNavigator();
 
 const RootNavigation = () => {
@@ -51,6 +53,8 @@ const RootNavigation = () => {
         <Drawer.Screen name="Like" component={Like} />
         <Drawer.Screen name="Recipe" component={Recipe} />
         <Drawer.Screen name="Food" component={Food} />
+        <Drawer.Screen name="Chats" component={Chats} />
+        <Drawer.Screen name="ChatApp" component={ChatApp} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

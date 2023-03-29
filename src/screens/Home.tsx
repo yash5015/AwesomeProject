@@ -11,7 +11,7 @@ import HomeFood from './HomeFood';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Food from './Food';
 import Recipe from './Recipe';
-import Chat from './Chat';
+import Chats from './Chats';
 const Stack = createNativeStackNavigator();
 const Home = ({navigation}) => {
   return (
@@ -22,7 +22,7 @@ const Home = ({navigation}) => {
         headerShown: false,
       }}>
       <Stack.Screen name="HomeFood" component={HomeFood} />
-      <Stack.Screen name="Chat" component={Chat} />
+      <Stack.Screen name="Chats" component={Chats} />
       {/* <Stack.Screen name="Recipe" component={Recipe} /> */}
     </Stack.Navigator>
   );

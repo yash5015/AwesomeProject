@@ -14,8 +14,10 @@ import api from '../api';
 const Food = ({navigation, route}) => {
   const {id} = route.params;
   const handleChat = id => {
-    Alert.alert('Owner is busy right now', 'Please try to connect later');
-    // navigation.navigate('Chat');
+    // Alert.alert('Owner is busy right now', 'Please try to connect later');
+    navigation.navigate('ChatApp', {
+      FoodId: id,
+    });
   };
 
   return (
@@ -51,6 +53,18 @@ const Food = ({navigation, route}) => {
 };
 
 export default Food;
+type FontWeight =
+  | 'normal'
+  | 'bold'
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900';
 
 const styles = StyleSheet.create({
   btn: {
@@ -97,7 +111,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     textAlign: 'center',
-    fontWeight: 600,
+    fontWeight: '600' as FontWeight,
   },
   ingredients: {
     marginVertical: 10,
