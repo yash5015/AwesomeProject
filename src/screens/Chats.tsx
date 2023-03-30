@@ -13,12 +13,25 @@ import api from '../api';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ChatApp from './ChatApp';
 
-const Chat = ({navigation, route}) => {
+const Chats = ({navigation, route}) => {
   const [messages, setMessages] = useState([]);
   const handleChat = id => {
     navigation.navigate('ChatApp', {
       FoodId: id,
+      headerTitle: api[id - 1].recipe.label,
+      headerDp: api[id - 1].recipe.image,
     });
+  };
+  const getMarker = () => {
+    // const events = await firebase.firestore().collection('chats');
+    // events.get().then(querySnapshot => {
+    //   const tempDoc = querySnapshot.docs.map(doc => {
+    //     return {id: doc.id, ...doc.data()};
+    //   });
+    //   console.log(tempDoc);
+    // });
+    // let db = firestore();
+    // console.log(db.collection('chats'));
   };
   useEffect(() => {
     // const querySnapShot = firestore()
@@ -31,6 +44,8 @@ const Chat = ({navigation, route}) => {
     //   });
     //   setMessages(querySnapShot);
     // });
+    // console.log(getMarker());
+    // getMarker();
   }, []);
   let foodIds = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
@@ -61,7 +76,7 @@ const Chat = ({navigation, route}) => {
   );
 };
 
-export default Chat;
+export default Chats;
 
 const styles = StyleSheet.create({
   chatitems: {

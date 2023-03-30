@@ -40,7 +40,7 @@ const ChatApp = ({navigation, route}) => {
     setMessages(previousMessages => GiftedChat.append(previousMessages, myMsg));
     firestore()
       .collection('chats')
-      .doc('3')
+      .doc(`${FoodId}`)
       .collection('messages')
       .add({
         ...myMsg,

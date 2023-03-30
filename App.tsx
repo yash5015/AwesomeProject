@@ -9,12 +9,12 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {ScrollView, StatusBar, Text, View} from 'react-native';
+
 import RootNavigation from './src/RootNavigation';
-import Home from './src/screens/Home';
+// import {NavigationContainer} from '@react-navigation/native';
 
 function App() {
   return <RootNavigation />;
-  // return <Home />;
 }
 
 export default App;

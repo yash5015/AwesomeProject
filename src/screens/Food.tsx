@@ -17,6 +17,8 @@ const Food = ({navigation, route}) => {
     // Alert.alert('Owner is busy right now', 'Please try to connect later');
     navigation.navigate('ChatApp', {
       FoodId: id,
+      headerTitle: api[id - 1].recipe.label,
+      headerDp: api[id - 1].recipe.image,
     });
   };
 
