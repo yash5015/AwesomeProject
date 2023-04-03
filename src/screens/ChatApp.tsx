@@ -55,6 +55,8 @@ const ChatApp = ({navigation, route}) => {
         onSend={messages => onSend(messages)}
         user={{
           _id: 1,
+          name: 'User',
+          avatar: 'https://placeimg.com/140/140/any',
         }}
       />
     </View>
